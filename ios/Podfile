@@ -1,0 +1,62 @@
+# Resolve script with node to allow for hoisting
+def node_require(script)
+  require Pod::Executable.execute_command('node', ['-p',
+    "require.resolve(
+      '#{script}',
+      {paths: [process.argv[1]]},
+    )", __dir__]).strip
+end
+
+node_require('react-native/scripts/react_native_pods.rb')
+
+# Hỗ trợ iOS 16.1+, tối ưu cho iOS 17, iOS 18 & iOS 27
+platform :ios, '16.1'
+prepare_react_native_project!
+
+target 'LiveWidgetsExample' do
+  config = use_native_modules!
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
+
+  pod 'react-native-live-widgets', :path => '../node_modules/react-native-live-widgets'
+end
+
+post_install do |installer|
+  react_native_post_install(
+    installer,
+    '../node_modules/react-native',
+    :mac_catalyst_enabled => false
+  )
+
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '16.1'
+      config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+      config.build_settings['APPLICATION_EXTENSION_API_ONLY'] = 'NO'
+    end
+  end
+
+  # Vá lỗi consteval của thư viện fmt 11.0.2 trên Xcode mới (Apple clang)
+  fmt_base_h = File.join(installer.sandbox.root, 'fmt', 'include', 'fmt', 'base.h')
+  marker = '// patched for Xcode Apple clang'
+  if File.exist?(fmt_base_h)
+    content = File.read(fmt_base_h)
+    unless content.include?(marker)
+      original = "#if !defined(__cpp_lib_is_constant_evaluated)\n#  define FMT_USE_CONSTEVAL 0"
+      patched  = "#{marker}\n#if 1  // was: !defined(__cpp_lib_is_constant_evaluated)\n#  define FMT_USE_CONSTEVAL 0"
+      if content.include?(original)
+        original_mode = File.stat(fmt_base_h).mode
+        begin
+          File.chmod(0644, fmt_base_h)
+          File.write(fmt_base_h, content.sub(original, patched))
+        ensure
+          File.chmod(original_mode, fmt_base_h)
+        end
+        Pod::UI.puts '[LiveWidgets] fmt/base.h: đã tắt consteval cho Apple clang'.green
+      end
+    end
+  end
+end

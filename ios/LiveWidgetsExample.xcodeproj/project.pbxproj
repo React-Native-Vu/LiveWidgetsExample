@@ -1,0 +1,614 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09596577CBA14A8509F35C2D /* DynamicNodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DEF467ABA6E53AE6D56F0 /* DynamicNodeView.swift */; };
+		107AED8D2FEE6108DE093A26 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E0BAF9DCDCD72EA891D9EB90 /* PrivacyInfo.xcprivacy */; };
+		2D17AED0BF3B60195F07973C /* DynamicLiveActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8A48674EA543EC5ECBFF1 /* DynamicLiveActivityWidget.swift */; };
+		541D898EAEDE7ED7E9077262 /* libPods-LiveWidgetsExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 984750922B272AB73212094A /* libPods-LiveWidgetsExample.a */; };
+		65606CBDF3725A8203CFF9AB /* LiveWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A08E25BACA10DEFADE5AD5 /* LiveWidgetsBundle.swift */; };
+		68195E7F6D8C151675A62847 /* LiveWidgetsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7AE047E4550BC92F36AECBA5 /* LiveWidgetsExtension.appex */; };
+		73B3146E74BD0CFC54EBEBC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525B1F563728178601C6C776 /* Foundation.framework */; };
+		8F355CDAA239D3050422337F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E1C1FDCB7D4B4BFBC9275 /* AppDelegate.swift */; };
+		AA0100000000000000000001 /* DynamicLayoutModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0100000000000000000001 /* DynamicLayoutModels.swift */; };
+		AA0100000000000000000002 /* DynamicWidgetStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0100000000000000000002 /* DynamicWidgetStateStore.swift */; };
+		AA0100000000000000000003 /* DynamicWidgetImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0100000000000000000003 /* DynamicWidgetImageCache.swift */; };
+		AA0100000000000000000004 /* DynamicWidgetActionIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0100000000000000000004 /* DynamicWidgetActionIntent.swift */; };
+		AA0100000000000000000005 /* ColorHexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0100000000000000000005 /* ColorHexExtension.swift */; };
+		AA0100000000000000000006 /* DynamicNodeRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0100000000000000000006 /* DynamicNodeRegistry.swift */; };
+		C43E70C0AB18F523A1AC7F0E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525B1F563728178601C6C776 /* Foundation.framework */; };
+		E10D9C4C110E2E67B2A20EEB /* DynamicActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B49CA0B717BE058CFDA03A6 /* DynamicActivityAttributes.swift */; };
+		FEFE2A59EE1098633EEA780A /* DynamicHomeScreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290A47ED3C9E324646E49739 /* DynamicHomeScreenWidget.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		38958C875C37DE19DDB47E66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AECE142857D8681209BE65D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CAF56F4E9FB3C170479F2420;
+			remoteInfo = LiveWidgetsExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9BD97999BD2E6885CBE05BF9 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				68195E7F6D8C151675A62847 /* LiveWidgetsExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		290A47ED3C9E324646E49739 /* DynamicHomeScreenWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicHomeScreenWidget.swift; path = "../../react-native-live-widgets/ios/Widgets/DynamicHomeScreenWidget.swift"; sourceTree = "<group>"; };
+		38401B199FE9C5C720AB84A9 /* Pods-LiveWidgetsExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveWidgetsExtension.release.xcconfig"; path = "Target Support Files/Pods-LiveWidgetsExtension/Pods-LiveWidgetsExtension.release.xcconfig"; sourceTree = "<group>"; };
+		3A0420145C4A281CA00853FE /* Pods-LiveWidgetsExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveWidgetsExtension.debug.xcconfig"; path = "Target Support Files/Pods-LiveWidgetsExtension/Pods-LiveWidgetsExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		3B49CA0B717BE058CFDA03A6 /* DynamicActivityAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicActivityAttributes.swift; path = "../../react-native-live-widgets/ios/Models/DynamicActivityAttributes.swift"; sourceTree = "<group>"; };
+		525B1F563728178601C6C776 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5C7823511642D606BD56F196 /* libPods-LiveWidgetsExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LiveWidgetsExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FF1B6C09AA2BFA618F86B71 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = LiveWidgetsExtension/Info.plist; sourceTree = "<group>"; };
+		77A08E25BACA10DEFADE5AD5 /* LiveWidgetsBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveWidgetsBundle.swift; path = LiveWidgetsExtension/LiveWidgetsBundle.swift; sourceTree = "<group>"; };
+		7AE047E4550BC92F36AECBA5 /* LiveWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LiveWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E1DEF467ABA6E53AE6D56F0 /* DynamicNodeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicNodeView.swift; path = "../../react-native-live-widgets/ios/Renderer/DynamicNodeView.swift"; sourceTree = "<group>"; };
+		914980BD972A3C754203D20F /* Pods-LiveWidgetsExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveWidgetsExample.release.xcconfig"; path = "Target Support Files/Pods-LiveWidgetsExample/Pods-LiveWidgetsExample.release.xcconfig"; sourceTree = "<group>"; };
+		984750922B272AB73212094A /* libPods-LiveWidgetsExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LiveWidgetsExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3997564B76A8C4A3D7533EC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = LiveWidgetsExample/Info.plist; sourceTree = "<group>"; };
+		BB0100000000000000000001 /* DynamicLayoutModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicLayoutModels.swift; path = "../../react-native-live-widgets/ios/Models/DynamicLayoutModels.swift"; sourceTree = "<group>"; };
+		BB0100000000000000000002 /* DynamicWidgetStateStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicWidgetStateStore.swift; path = "../../react-native-live-widgets/ios/Storage/DynamicWidgetStateStore.swift"; sourceTree = "<group>"; };
+		BB0100000000000000000003 /* DynamicWidgetImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicWidgetImageCache.swift; path = "../../react-native-live-widgets/ios/Storage/DynamicWidgetImageCache.swift"; sourceTree = "<group>"; };
+		BB0100000000000000000004 /* DynamicWidgetActionIntent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicWidgetActionIntent.swift; path = "../../react-native-live-widgets/ios/Intents/DynamicWidgetActionIntent.swift"; sourceTree = "<group>"; };
+		BB0100000000000000000005 /* ColorHexExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorHexExtension.swift; path = "../../react-native-live-widgets/ios/Renderer/ColorHexExtension.swift"; sourceTree = "<group>"; };
+		BB0100000000000000000006 /* DynamicNodeRegistry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicNodeRegistry.swift; path = "../../react-native-live-widgets/ios/Renderer/DynamicNodeRegistry.swift"; sourceTree = "<group>"; };
+		D396CCDF57418F6E7C01CD08 /* Pods-LiveWidgetsExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveWidgetsExample.debug.xcconfig"; path = "Target Support Files/Pods-LiveWidgetsExample/Pods-LiveWidgetsExample.debug.xcconfig"; sourceTree = "<group>"; };
+		E0BAF9DCDCD72EA891D9EB90 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = LiveWidgetsExample/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		E51E1C1FDCB7D4B4BFBC9275 /* AppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = LiveWidgetsExample/AppDelegate.swift; sourceTree = "<group>"; };
+		E8F3CBA82AFAB49F0856F486 /* LiveWidgetsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveWidgetsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFB8A48674EA543EC5ECBFF1 /* DynamicLiveActivityWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicLiveActivityWidget.swift; path = "../../react-native-live-widgets/ios/Widgets/DynamicLiveActivityWidget.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3673476D7D4F562E73221D2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73B3146E74BD0CFC54EBEBC8 /* Foundation.framework in Frameworks */,
+				541D898EAEDE7ED7E9077262 /* libPods-LiveWidgetsExample.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DC03EE7224538D48F95E4F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C43E70C0AB18F523A1AC7F0E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		37A7086F5C62C6951096204B /* LiveWidgetsExtension */ = {
+			isa = PBXGroup;
+			children = (
+				5FF1B6C09AA2BFA618F86B71 /* Info.plist */,
+				77A08E25BACA10DEFADE5AD5 /* LiveWidgetsBundle.swift */,
+				BB0100000000000000000001 /* DynamicLayoutModels.swift */,
+				3B49CA0B717BE058CFDA03A6 /* DynamicActivityAttributes.swift */,
+				BB0100000000000000000002 /* DynamicWidgetStateStore.swift */,
+				BB0100000000000000000003 /* DynamicWidgetImageCache.swift */,
+				BB0100000000000000000004 /* DynamicWidgetActionIntent.swift */,
+				BB0100000000000000000005 /* ColorHexExtension.swift */,
+				BB0100000000000000000006 /* DynamicNodeRegistry.swift */,
+				7E1DEF467ABA6E53AE6D56F0 /* DynamicNodeView.swift */,
+				FFB8A48674EA543EC5ECBFF1 /* DynamicLiveActivityWidget.swift */,
+				290A47ED3C9E324646E49739 /* DynamicHomeScreenWidget.swift */,
+			);
+			name = LiveWidgetsExtension;
+			sourceTree = "<group>";
+		};
+		5BD5230A33661DC0630989DF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				914980BD972A3C754203D20F /* Pods-LiveWidgetsExample.release.xcconfig */,
+				D396CCDF57418F6E7C01CD08 /* Pods-LiveWidgetsExample.debug.xcconfig */,
+				38401B199FE9C5C720AB84A9 /* Pods-LiveWidgetsExtension.release.xcconfig */,
+				3A0420145C4A281CA00853FE /* Pods-LiveWidgetsExtension.debug.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6A28E4F33FED0FB34811BAD4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				927A5E2E456FB9699EF33668 /* iOS */,
+				984750922B272AB73212094A /* libPods-LiveWidgetsExample.a */,
+				5C7823511642D606BD56F196 /* libPods-LiveWidgetsExtension.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		927A5E2E456FB9699EF33668 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				525B1F563728178601C6C776 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CCC27BB707FC899202297BA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E8F3CBA82AFAB49F0856F486 /* LiveWidgetsExample.app */,
+				7AE047E4550BC92F36AECBA5 /* LiveWidgetsExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D37EB9F2548EA47EBCF1393D /* LiveWidgetsExample */ = {
+			isa = PBXGroup;
+			children = (
+				B3997564B76A8C4A3D7533EC /* Info.plist */,
+				E51E1C1FDCB7D4B4BFBC9275 /* AppDelegate.swift */,
+				E0BAF9DCDCD72EA891D9EB90 /* PrivacyInfo.xcprivacy */,
+			);
+			name = LiveWidgetsExample;
+			sourceTree = "<group>";
+		};
+		FE24D13E4ED8648288E7067F = {
+			isa = PBXGroup;
+			children = (
+				CCC27BB707FC899202297BA4 /* Products */,
+				6A28E4F33FED0FB34811BAD4 /* Frameworks */,
+				D37EB9F2548EA47EBCF1393D /* LiveWidgetsExample */,
+				37A7086F5C62C6951096204B /* LiveWidgetsExtension */,
+				5BD5230A33661DC0630989DF /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		30FD1B35AA271551C983802E /* LiveWidgetsExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE0EEFF23473C62AB52C4D22 /* Build configuration list for PBXNativeTarget "LiveWidgetsExample" */;
+			buildPhases = (
+				E7CA47D586BEB553478B9449 /* [CP] Check Pods Manifest.lock */,
+				CBEDF03D867CA447A70AEDAF /* Sources */,
+				3673476D7D4F562E73221D2D /* Frameworks */,
+				687A916EF36BFA16083E1420 /* Resources */,
+				9BD97999BD2E6885CBE05BF9 /* Embed App Extensions */,
+				8B87671675DCFD08FBD20278 /* [CP] Embed Pods Frameworks */,
+				53464AC8741847EA71523D41 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6731322B54E64A70C9672FCF /* PBXTargetDependency */,
+			);
+			name = LiveWidgetsExample;
+			productName = LiveWidgetsExample;
+			productReference = E8F3CBA82AFAB49F0856F486 /* LiveWidgetsExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CAF56F4E9FB3C170479F2420 /* LiveWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8598FE35CC57FE88FADDF55 /* Build configuration list for PBXNativeTarget "LiveWidgetsExtension" */;
+			buildPhases = (
+				A647C123C86E45BB5943E905 /* Sources */,
+				4DC03EE7224538D48F95E4F7 /* Frameworks */,
+				B795B5CE73411A101F265DB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LiveWidgetsExtension;
+			productName = LiveWidgetsExtension;
+			productReference = 7AE047E4550BC92F36AECBA5 /* LiveWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4AECE142857D8681209BE65D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					30FD1B35AA271551C983802E = {
+						DevelopmentTeam = Q79Z23HGU9;
+					};
+					CAF56F4E9FB3C170479F2420 = {
+						DevelopmentTeam = Q79Z23HGU9;
+					};
+				};
+			};
+			buildConfigurationList = 3FA2632EA579A6B7EEFB5213 /* Build configuration list for PBXProject "LiveWidgetsExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FE24D13E4ED8648288E7067F;
+			productRefGroup = CCC27BB707FC899202297BA4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				30FD1B35AA271551C983802E /* LiveWidgetsExample */,
+				CAF56F4E9FB3C170479F2420 /* LiveWidgetsExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		687A916EF36BFA16083E1420 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				107AED8D2FEE6108DE093A26 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B795B5CE73411A101F265DB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		53464AC8741847EA71523D41 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LiveWidgetsExample/Pods-LiveWidgetsExample-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/RCT-Folly/RCT-Folly_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/RNCAsyncStorage/RNCAsyncStorage_resources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/React-Core_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-cxxreact/React-cxxreact_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/boost/boost_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/glog/glog_privacy.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCT-Folly_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RNCAsyncStorage_resources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-Core_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-cxxreact_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/boost_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/glog_privacy.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LiveWidgetsExample/Pods-LiveWidgetsExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B87671675DCFD08FBD20278 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LiveWidgetsExample/Pods-LiveWidgetsExample-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LiveWidgetsExample/Pods-LiveWidgetsExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7CA47D586BEB553478B9449 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LiveWidgetsExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A647C123C86E45BB5943E905 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65606CBDF3725A8203CFF9AB /* LiveWidgetsBundle.swift in Sources */,
+				AA0100000000000000000001 /* DynamicLayoutModels.swift in Sources */,
+				E10D9C4C110E2E67B2A20EEB /* DynamicActivityAttributes.swift in Sources */,
+				AA0100000000000000000002 /* DynamicWidgetStateStore.swift in Sources */,
+				AA0100000000000000000003 /* DynamicWidgetImageCache.swift in Sources */,
+				AA0100000000000000000004 /* DynamicWidgetActionIntent.swift in Sources */,
+				AA0100000000000000000005 /* ColorHexExtension.swift in Sources */,
+				AA0100000000000000000006 /* DynamicNodeRegistry.swift in Sources */,
+				09596577CBA14A8509F35C2D /* DynamicNodeView.swift in Sources */,
+				2D17AED0BF3B60195F07973C /* DynamicLiveActivityWidget.swift in Sources */,
+				FEFE2A59EE1098633EEA780A /* DynamicHomeScreenWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBEDF03D867CA447A70AEDAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F355CDAA239D3050422337F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6731322B54E64A70C9672FCF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LiveWidgetsExtension;
+			target = CAF56F4E9FB3C170479F2420 /* LiveWidgetsExtension */;
+			targetProxy = 38958C875C37DE19DDB47E66 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0907F0C43DF6C39E2E492170 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = LiveWidgetsExtension.entitlements;
+				DEVELOPMENT_TEAM = Q79Z23HGU9;
+				INFOPLIST_FILE = LiveWidgetsExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.livewidgetsexample.LiveWidgetsExtension;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		68C07786ADB0317131DF168F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				USE_HERMES = true;
+			};
+			name = Debug;
+		};
+		BAB6D1F11B93F75E94338A98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = LiveWidgetsExtension.entitlements;
+				DEVELOPMENT_TEAM = Q79Z23HGU9;
+				INFOPLIST_FILE = LiveWidgetsExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.livewidgetsexample.LiveWidgetsExtension;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		DCAECE4DCB16642E4728C76A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D396CCDF57418F6E7C01CD08 /* Pods-LiveWidgetsExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = LiveWidgetsExample.entitlements;
+				DEVELOPMENT_TEAM = Q79Z23HGU9;
+				INFOPLIST_FILE = LiveWidgetsExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.livewidgetsexample;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EDD1262822634151E5EF232C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				USE_HERMES = true;
+			};
+			name = Release;
+		};
+		F526DFE671A63BA769EFA5DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 914980BD972A3C754203D20F /* Pods-LiveWidgetsExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = LiveWidgetsExample.entitlements;
+				DEVELOPMENT_TEAM = Q79Z23HGU9;
+				INFOPLIST_FILE = LiveWidgetsExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.livewidgetsexample;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3FA2632EA579A6B7EEFB5213 /* Build configuration list for PBXProject "LiveWidgetsExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68C07786ADB0317131DF168F /* Debug */,
+				EDD1262822634151E5EF232C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8598FE35CC57FE88FADDF55 /* Build configuration list for PBXNativeTarget "LiveWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0907F0C43DF6C39E2E492170 /* Release */,
+				BAB6D1F11B93F75E94338A98 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE0EEFF23473C62AB52C4D22 /* Build configuration list for PBXNativeTarget "LiveWidgetsExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F526DFE671A63BA769EFA5DC /* Release */,
+				DCAECE4DCB16642E4728C76A /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4AECE142857D8681209BE65D /* Project object */;
+}

@@ -1,0 +1,27 @@
+{
+  "name": "LiveWidgetsExample",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "postinstall": "node scripts/patch-xcode27.js"
+  },
+  "dependencies": {
+    "react": "19.1.0",
+    "react-native": "^0.80.2",
+    "@react-native-async-storage/async-storage": "^2.2.0",
+    "react-native-live-widgets": "^1.0.0"
+  },
+  "devDependencies": {
+    "@react-native-community/cli": "^19.1.2",
+    "@react-native-community/cli-platform-android": "19.1.1",
+    "@react-native-community/cli-platform-ios": "19.1.1",
+    "@react-native/babel-preset": "0.80.2",
+    "@react-native/metro-config": "0.80.2",
+    "@types/react": "^19.1.8",
+    "typescript": "^5.0.4"
+  }
+}
+

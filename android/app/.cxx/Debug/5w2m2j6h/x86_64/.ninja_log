@@ -1,0 +1,12 @@
+# ninja log v5
+0	17	0	/Users/tt/works/fastdo/LiveWidgetsExample/android/app/.cxx/Debug/5w2m2j6h/x86_64/CMakeFiles/cmake.verify_globs	24b9df5f2fea26c1
+0	2017	1794716180812143541	CMakeFiles/appmodules.dir/Users/tt/works/fastdo/LiveWidgetsExample/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp.o	3c5c8ee374085e3a
+1	2150	1794716180941457899	CMakeFiles/appmodules.dir/OnLoad.cpp.o	c19f84bd50abc63b
+2150	2227	1794716181028404669	/Users/tt/works/fastdo/LiveWidgetsExample/android/app/build/intermediates/cxx/Debug/5w2m2j6h/obj/x86_64/libappmodules.so	1137e482b46b4a97
+0	13	0	/Users/tt/works/fastdo/LiveWidgetsExample/android/app/.cxx/Debug/5w2m2j6h/x86_64/CMakeFiles/cmake.verify_globs	24b9df5f2fea26c1
+1	22	0	/Users/tt/works/fastdo/LiveWidgetsExample/android/app/.cxx/Debug/5w2m2j6h/x86_64/CMakeFiles/cmake.verify_globs	24b9df5f2fea26c1
+1	42	0	/Users/tt/works/fastdo/LiveWidgetsExample/android/app/.cxx/Debug/5w2m2j6h/x86_64/CMakeFiles/cmake.verify_globs	24b9df5f2fea26c1
+0	16	0	/Users/tt/works/fastdo/LiveWidgetsExample/android/app/.cxx/Debug/5w2m2j6h/x86_64/CMakeFiles/cmake.verify_globs	24b9df5f2fea26c1
+1	16	0	/Users/tt/works/fastdo/LiveWidgetsExample/android/app/.cxx/Debug/5w2m2j6h/x86_64/CMakeFiles/cmake.verify_globs	24b9df5f2fea26c1
+0	159	0	/Users/tt/works/fastdo/LiveWidgetsExample/android/app/.cxx/Debug/5w2m2j6h/x86_64/CMakeFiles/cmake.verify_globs	24b9df5f2fea26c1
+0	14	0	/Users/tt/works/fastdo/LiveWidgetsExample/android/app/.cxx/Debug/5w2m2j6h/x86_64/CMakeFiles/cmake.verify_globs	24b9df5f2fea26c1
