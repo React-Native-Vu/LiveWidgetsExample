@@ -22,6 +22,9 @@ ios/DerivedData/
 *.xcuserstate
 
 # Android
+.cxx/
+android/.cxx/
+android/app/.cxx/
 android/.gradle/
 android/build/
 android/app/build/
