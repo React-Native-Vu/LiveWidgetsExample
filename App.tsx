@@ -14,6 +14,8 @@ import {
   LiveActivityPushTokens,
   SharedStorage,
   Widget,
+  WidgetPreview,
+  useWidgetAction,
 } from 'react-native-live-widgets';
 
 import { ShiftApiResponse, UIPreset } from './src/types/preset';
@@ -50,6 +52,11 @@ export default function App() {
     const time = new Date().toLocaleTimeString();
     setLogs((prev) => [`[${time}] ${msg}`, ...prev.slice(0, 15)]);
   };
+
+  // Hook v1.2: Lắng nghe toàn cục sự kiện tương tác nút bấm, tương thích Fast Refresh
+  useWidgetAction((actionId) => {
+    addLog(`[Hook useWidgetAction] Thao tác: ${actionId}`);
+  });
 
   const handleRequestPinWidget = async () => {
     try {
@@ -331,6 +338,19 @@ export default function App() {
         )}
 
         <PushTokenPanel tokens={pushTokens} onRefresh={() => refreshAllApnsTokens()} />
+
+        <Text style={styles.sectionTitle}>XEM TRƯỚC WIDGET TRONG APP (WIDGETPREVIEW)</Text>
+        <WidgetPreview
+          size="medium"
+          showBadge={true}
+          interactiveSizeSwitch={true}
+          layout={
+            (UI_PRESETS.find((p) => p.id === selectedPresetId) || UI_PRESETS[0]).buildWidgetLayouts() as any
+          }
+          onAction={(actionId: string) => {
+            addLog(`[Preview Tap] Bấm nút: ${actionId}`);
+          }}
+        />
 
         <Text style={styles.sectionTitle}>DANH SÁCH MẪU GIAO DIỆN</Text>
 
