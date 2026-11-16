@@ -124,18 +124,14 @@ export default function App() {
       setSelectedPresetId(preset.id);
       await SharedStorage.remove('widget_timeline_main', APP_GROUP);
       const layouts = preset.buildWidgetLayouts();
+      
+      // Đồng bộ vào 'main' và toàn bộ các widget slots ('pro', 'counter', 'shift', 'workspace')
+      // Đảm bảo dù người dùng ghim bất kỳ tiện ích nào ra Home Screen, tiện ích đó cũng cập nhật tức thì!
       const ok = await Widget.setLayout('main', layouts, APP_GROUP);
-
-      // Đồng thời cập nhật vào key tương ứng cho các Widget độc lập
-      if (preset.id === 'interactive_counter') {
-        await Widget.setLayout('counter', layouts, APP_GROUP);
-      } else if (preset.id === 'pro_features') {
-        await Widget.setLayout('pro', layouts, APP_GROUP);
-      } else if (preset.id === 'shift_attendance') {
-        await Widget.setLayout('shift', layouts, APP_GROUP);
-      } else if (preset.id === 'interactive_workspace') {
-        await Widget.setLayout('workspace', layouts, APP_GROUP);
-      }
+      await Widget.setLayout('pro', layouts, APP_GROUP);
+      await Widget.setLayout('counter', layouts, APP_GROUP);
+      await Widget.setLayout('shift', layouts, APP_GROUP);
+      await Widget.setLayout('workspace', layouts, APP_GROUP);
 
       await Widget.reloadAll();
 
@@ -202,20 +198,6 @@ export default function App() {
       } catch {}
 
       await applyPresetToWidget(UI_PRESETS[0]);
-
-      // Khởi tạo trước dữ liệu cho từng widget độc lập
-      for (const p of UI_PRESETS) {
-        const layouts = p.buildWidgetLayouts();
-        if (p.id === 'interactive_counter') {
-          Widget.setLayout('counter', layouts, APP_GROUP);
-        } else if (p.id === 'pro_features') {
-          Widget.setLayout('pro', layouts, APP_GROUP);
-        } else if (p.id === 'shift_attendance') {
-          Widget.setLayout('shift', layouts, APP_GROUP);
-        } else if (p.id === 'interactive_workspace') {
-          Widget.setLayout('workspace', layouts, APP_GROUP);
-        }
-      }
     };
 
     initWidgets();
