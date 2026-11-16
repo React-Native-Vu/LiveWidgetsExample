@@ -12,7 +12,7 @@
     "react": "19.1.0",
     "react-native": "^0.80.2",
     "@react-native-async-storage/async-storage": "^2.2.0",
-    "react-native-live-widgets": "^1.0.0"
+    "react-native-live-widgets": "file:../react-native-live-widgets"
   },
   "devDependencies": {
     "@react-native-community/cli": "^19.1.2",
