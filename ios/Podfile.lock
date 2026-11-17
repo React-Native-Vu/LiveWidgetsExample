@@ -1648,13 +1648,13 @@ PODS:
     - React-RCTFBReactNativeSpec
     - ReactCommon/turbomodule/core
     - SocketRocket
-  - react-native-live-widgets (1.0.0):
-    - react-native-live-widgets/Bridge (= 1.0.0)
-    - react-native-live-widgets/Widget (= 1.0.0)
-  - react-native-live-widgets/Bridge (1.0.0):
+  - react-native-live-widgets (1.2.0):
+    - react-native-live-widgets/Bridge (= 1.2.0)
+    - react-native-live-widgets/Widget (= 1.2.0)
+  - react-native-live-widgets/Bridge (1.2.0):
     - React-Core
     - react-native-live-widgets/Widget
-  - react-native-live-widgets/Widget (1.0.0)
+  - react-native-live-widgets/Widget (1.2.0)
   - React-NativeModulesApple (0.80.3):
     - boost
     - DoubleConversion
@@ -2435,7 +2435,7 @@ SPEC CHECKSUMS:
   React-logger: 27a0ba0f2b713322b7a09789e00b363e8de9b152
   React-Mapbuffer: 64e5ffbe054209715bf142812c681a31a401a138
   React-microtasksnativemodule: ea305a181932fc24e0490dae64f52df351fb3554
-  react-native-live-widgets: 7de399a9eaddd2638af75089be5781ef6dbf92a4
+  react-native-live-widgets: 30e66023bdcab0f1cc37d83e0f5fc9f5c62fcba1
   React-NativeModulesApple: a57643baeedf5755cd0b502b98b06f55727ae620
   React-oscompat: 1762851649bbc9f483024c178e1d948d627c28b5
   React-perflogger: 526f851545ecedf512c44f1450dfb2717977adfc

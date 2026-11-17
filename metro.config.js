@@ -19,8 +19,12 @@ const config = {
       react: path.resolve(projectRoot, 'node_modules/react'),
       'react-native': path.resolve(projectRoot, 'node_modules/react-native'),
     },
+    blockList: [
+      new RegExp(`^${path.resolve(libraryRoot, 'node_modules/react')}(/.*)?$`),
+      new RegExp(`^${path.resolve(libraryRoot, 'node_modules/react-native')}(/.*)?$`),
+      new RegExp(`^${path.resolve(libraryRoot, 'node_modules/@react-native')}(/.*)?$`),
+    ],
   },
 };
 
 module.exports = mergeConfig(getDefaultConfig(projectRoot), config);
-

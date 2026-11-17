@@ -250,6 +250,19 @@ export default function App() {
       await updateCounterFromAction(0);
     });
 
+    const jsxActions: Array<[string, string]> = [
+      ['action_jsx_checkin', 'JSX Check-in: Điểm danh ca làm thành công!'],
+      ['action_jsx_checkout', 'JSX Check-out: Đã ghi nhận kết thúc ca làm!'],
+      ['action_jsx_refresh', 'JSX Làm mới: Đã đồng bộ dữ liệu ca làm mới nhất!'],
+      ['action_jsx_leave', 'JSX Nghỉ phép: Đã gửi yêu cầu xin nghỉ phép!'],
+      ['action_jsx_report', 'JSX Báo cáo: Đã gửi báo cáo cuối ca!'],
+    ];
+    const unsubJsxActions = jsxActions.map(([id, msg]) =>
+      LiveActivity.registerAction(id, () => {
+        addLog(`⚡ ${msg}`);
+      })
+    );
+
     // Khi người dùng từ ngoài màn hình chính quay lại App:
     const subAppState = AppState.addEventListener('change', async (state) => {
       if (state === 'active') {
@@ -290,6 +303,7 @@ export default function App() {
       unsubInc();
       unsubDec();
       unsubReset();
+      unsubJsxActions.forEach((unsub) => unsub());
       unsubDevice();
       unsubStart();
       unsubUpdate();

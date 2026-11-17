@@ -6,4 +6,3 @@ import { LiveActivity } from 'react-native-live-widgets';
 LiveActivity.registerBackgroundActionHandler();
 
 AppRegistry.registerComponent(appName, () => App);
-
