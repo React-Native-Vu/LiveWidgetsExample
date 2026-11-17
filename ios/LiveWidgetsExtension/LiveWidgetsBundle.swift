@@ -1,3 +1,9 @@
+//
+// LiveWidgetsBundle.swift
+// Generated automatically by react-native-live-widgets. DO NOT EDIT DIRECTLY.
+// Source config: widgets.config.ts
+//
+
 import WidgetKit
 import SwiftUI
 #if canImport(react_native_live_widgets)
@@ -14,24 +20,22 @@ struct LiveWidgetsBundle: WidgetBundle {
       DynamicLiveActivityWidget()
     }
 
-    // 2. Tiện ích chính (Dynamic / Đang chọn trong App)
+    // 2. Home Screen Widgets đăng ký từ TypeScript config
     DynamicHomeScreenWidget()
-
-    // 3. Tiện ích Bộ đếm tương tác (Interactive TS Counter)
     InteractiveCounterHomeScreenWidget()
-
-    // 4. Tiện ích Bảo mật & Tính năng Pro (Core 2.0)
     ProFeaturesHomeScreenWidget()
-
-    // 5. Tiện ích Chấm công & Ca làm việc (Shift Attendance)
     ShiftAttendanceHomeScreenWidget()
-
-    // 6. Tiện ích Không gian làm việc đa trang (Multi-Page Workspace)
     MultiPageHomeScreenWidget()
+
+    // 3. iOS 18+ Interactive Control Center Widgets
+    if #available(iOS 18.0, *) {
+      DynamicControlWidget()
+      DynamicControlToggleWidget()
+    }
   }
 }
 
-// ── 1. TIỆN ÍCH CHÍNH (ĐỒNG BỘ THEO MẪU ĐANG CHỌN) ──
+// ── 1. TIỆN ÍCH: TIỆN ÍCH LIVE WIDGETS (KEY: "main") ──
 struct DynamicHomeScreenWidget: Widget {
   let kind: String = "DynamicHomeScreenWidget"
 
@@ -39,13 +43,13 @@ struct DynamicHomeScreenWidget: Widget {
     StaticConfiguration(kind: kind, provider: DynamicWidgetProvider(widgetKey: "main")) { entry in
       DynamicHomeScreenWidgetView(entry: entry)
     }
-    .configurationDisplayName("Tiện ích Live Widgets")
-    .description("Tự động đồng bộ và hiển thị theo mẫu giao diện bạn chọn trong ứng dụng.")
+    .configurationDisplayName(LocalizedStringKey("widgets.main.title"))
+    .description(LocalizedStringKey("widgets.main.desc"))
     .supportedFamilies(commonFamilies)
   }
 }
 
-// ── 2. TIỆN ÍCH BỘ ĐẾM TƯƠNG TÁC TYPESCRIPT ──
+// ── 2. TIỆN ÍCH: BỘ ĐẾM TƯƠNG TÁC (TS) (KEY: "counter") ──
 struct InteractiveCounterHomeScreenWidget: Widget {
   let kind: String = "InteractiveCounterHomeScreenWidget"
 
@@ -53,13 +57,13 @@ struct InteractiveCounterHomeScreenWidget: Widget {
     StaticConfiguration(kind: kind, provider: DynamicWidgetProvider(widgetKey: "counter")) { entry in
       DynamicHomeScreenWidgetView(entry: entry)
     }
-    .configurationDisplayName("Bộ đếm tương tác (TS)")
-    .description("Bấm nút [+] hoặc [-] để kích hoạt trực tiếp hàm logic TypeScript.")
+    .configurationDisplayName(LocalizedStringKey("widgets.counter.title"))
+    .description(LocalizedStringKey("widgets.counter.desc"))
     .supportedFamilies(commonFamilies)
   }
 }
 
-// ── 3. TIỆN ÍCH BẢO MẬT & KPI PRO (CORE 2.0) ──
+// ── 3. TIỆN ÍCH: BẢO MẬT & KPI PRO (KEY: "pro") ──
 struct ProFeaturesHomeScreenWidget: Widget {
   let kind: String = "ProFeaturesHomeScreenWidget"
 
@@ -67,13 +71,14 @@ struct ProFeaturesHomeScreenWidget: Widget {
     StaticConfiguration(kind: kind, provider: DynamicWidgetProvider(widgetKey: "pro")) { entry in
       DynamicHomeScreenWidgetView(entry: entry)
     }
-    .configurationDisplayName("Bảo mật & KPI Pro")
-    .description("Tự che số khi khoá máy (Privacy Sensitive) và hỗ trợ chế độ StandBy.")
+    .configurationDisplayName(LocalizedStringKey("widgets.pro.title"))
+    .description(LocalizedStringKey("widgets.pro.desc"))
     .supportedFamilies(commonFamilies)
+    .applyStandByMargins()
   }
 }
 
-// ── 4. TIỆN ÍCH CHẤM CÔNG & CA LÀM VIỆC ──
+// ── 4. TIỆN ÍCH: CHẤM CÔNG & CA LÀM VIỆC (KEY: "shift") ──
 struct ShiftAttendanceHomeScreenWidget: Widget {
   let kind: String = "ShiftAttendanceHomeScreenWidget"
 
@@ -81,13 +86,13 @@ struct ShiftAttendanceHomeScreenWidget: Widget {
     StaticConfiguration(kind: kind, provider: DynamicWidgetProvider(widgetKey: "shift")) { entry in
       DynamicHomeScreenWidgetView(entry: entry)
     }
-    .configurationDisplayName("Chấm công & Ca làm việc")
-    .description("Theo dõi giờ vào làm, thời gian tan ca và thanh tiến trình công việc.")
+    .configurationDisplayName(LocalizedStringKey("widgets.shift.title"))
+    .description(LocalizedStringKey("widgets.shift.desc"))
     .supportedFamilies(commonFamilies)
   }
 }
 
-// ── 5. TIỆN ÍCH KHÔNG GIAN ĐA TRANG (MULTI-PAGE) ──
+// ── 5. TIỆN ÍCH: KHÔNG GIAN ĐA TRANG (KEY: "workspace") ──
 struct MultiPageHomeScreenWidget: Widget {
   let kind: String = "MultiPageHomeScreenWidget"
 
@@ -95,14 +100,14 @@ struct MultiPageHomeScreenWidget: Widget {
     StaticConfiguration(kind: kind, provider: DynamicWidgetProvider(widgetKey: "workspace")) { entry in
       DynamicHomeScreenWidgetView(entry: entry)
     }
-    .configurationDisplayName("Không gian đa trang")
-    .description("Chuyển đổi qua lại giữa Ca làm, Công việc và OKRs ngay trên mặt Widget.")
+    .configurationDisplayName(LocalizedStringKey("widgets.workspace.title"))
+    .description(LocalizedStringKey("widgets.workspace.desc"))
     .supportedFamilies(commonFamilies)
   }
 }
 
 private var commonFamilies: [WidgetFamily] {
-  var list: [WidgetFamily] = [.systemSmall, .systemMedium, .systemLarge]
+  var list: [WidgetFamily] = [.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge]
   if #available(iOS 16.0, *) {
     list.append(contentsOf: [.accessoryRectangular, .accessoryCircular, .accessoryInline])
   }

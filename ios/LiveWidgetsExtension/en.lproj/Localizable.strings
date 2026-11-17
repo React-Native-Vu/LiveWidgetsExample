@@ -1,0 +1,16 @@
+/*
+ * Localizable.strings
+ * Generated automatically by react-native-live-widgets. DO NOT EDIT DIRECTLY.
+ * Language: en
+ */
+
+"widgets.main.title" = "Live Widgets Dynamic";
+"widgets.main.desc" = "Automatically synchronizes and renders selected preset layout in the app.";
+"widgets.counter.title" = "Interactive Counter (TS)";
+"widgets.counter.desc" = "Tap [+] or [-] to trigger TypeScript handler directly on the widget.";
+"widgets.pro.title" = "Security & KPI Pro";
+"widgets.pro.desc" = "Hides sensitive data when locked and supports StandBy Mode.";
+"widgets.shift.title" = "Attendance & Shifts";
+"widgets.shift.desc" = "Track check-in time, shift completion and progress bar.";
+"widgets.workspace.title" = "Multi-Page Workspace";
+"widgets.workspace.desc" = "Switch between Shifts, Tasks and OKRs directly on the widget.";

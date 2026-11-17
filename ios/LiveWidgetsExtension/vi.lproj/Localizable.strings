@@ -1,0 +1,16 @@
+/*
+ * Localizable.strings
+ * Generated automatically by react-native-live-widgets. DO NOT EDIT DIRECTLY.
+ * Language: vi
+ */
+
+"widgets.main.title" = "Tiện ích Live Widgets";
+"widgets.main.desc" = "Tự động đồng bộ và hiển thị theo mẫu giao diện bạn chọn trong ứng dụng.";
+"widgets.counter.title" = "Bộ đếm tương tác (TS)";
+"widgets.counter.desc" = "Bấm nút [+] hoặc [-] để kích hoạt trực tiếp hàm logic TypeScript.";
+"widgets.pro.title" = "Bảo mật & KPI Pro";
+"widgets.pro.desc" = "Tự che số khi khoá máy (Privacy Sensitive) và hỗ trợ chế độ StandBy.";
+"widgets.shift.title" = "Chấm công & Ca làm việc";
+"widgets.shift.desc" = "Theo dõi giờ vào làm, thời gian tan ca và thanh tiến trình công việc.";
+"widgets.workspace.title" = "Không gian đa trang";
+"widgets.workspace.desc" = "Chuyển đổi qua lại giữa Ca làm, Công việc và OKRs ngay trên mặt Widget.";

@@ -21,6 +21,7 @@
 		AA0100000000000000000004 /* DynamicWidgetActionIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0100000000000000000004 /* DynamicWidgetActionIntent.swift */; };
 		AA0100000000000000000005 /* ColorHexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0100000000000000000005 /* ColorHexExtension.swift */; };
 		AA0100000000000000000006 /* DynamicNodeRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0100000000000000000006 /* DynamicNodeRegistry.swift */; };
+		AA0100000000000000000007 /* DynamicControlWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0100000000000000000007 /* DynamicControlWidget.swift */; };
 		C43E70C0AB18F523A1AC7F0E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525B1F563728178601C6C776 /* Foundation.framework */; };
 		E10D9C4C110E2E67B2A20EEB /* DynamicActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B49CA0B717BE058CFDA03A6 /* DynamicActivityAttributes.swift */; };
 		FEFE2A59EE1098633EEA780A /* DynamicHomeScreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290A47ED3C9E324646E49739 /* DynamicHomeScreenWidget.swift */; };
@@ -70,6 +71,7 @@
 		BB0100000000000000000004 /* DynamicWidgetActionIntent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicWidgetActionIntent.swift; path = "../../react-native-live-widgets/ios/Intents/DynamicWidgetActionIntent.swift"; sourceTree = "<group>"; };
 		BB0100000000000000000005 /* ColorHexExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorHexExtension.swift; path = "../../react-native-live-widgets/ios/Renderer/ColorHexExtension.swift"; sourceTree = "<group>"; };
 		BB0100000000000000000006 /* DynamicNodeRegistry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicNodeRegistry.swift; path = "../../react-native-live-widgets/ios/Renderer/DynamicNodeRegistry.swift"; sourceTree = "<group>"; };
+		BB0100000000000000000007 /* DynamicControlWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicControlWidget.swift; path = "../../react-native-live-widgets/ios/Widgets/DynamicControlWidget.swift"; sourceTree = "<group>"; };
 		D396CCDF57418F6E7C01CD08 /* Pods-LiveWidgetsExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveWidgetsExample.debug.xcconfig"; path = "Target Support Files/Pods-LiveWidgetsExample/Pods-LiveWidgetsExample.debug.xcconfig"; sourceTree = "<group>"; };
 		E0BAF9DCDCD72EA891D9EB90 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = LiveWidgetsExample/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		E51E1C1FDCB7D4B4BFBC9275 /* AppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = LiveWidgetsExample/AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				7E1DEF467ABA6E53AE6D56F0 /* DynamicNodeView.swift */,
 				FFB8A48674EA543EC5ECBFF1 /* DynamicLiveActivityWidget.swift */,
 				290A47ED3C9E324646E49739 /* DynamicHomeScreenWidget.swift */,
+				BB0100000000000000000007 /* DynamicControlWidget.swift */,
 			);
 			name = LiveWidgetsExtension;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				09596577CBA14A8509F35C2D /* DynamicNodeView.swift in Sources */,
 				2D17AED0BF3B60195F07973C /* DynamicLiveActivityWidget.swift in Sources */,
 				FEFE2A59EE1098633EEA780A /* DynamicHomeScreenWidget.swift in Sources */,
+				AA0100000000000000000007 /* DynamicControlWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

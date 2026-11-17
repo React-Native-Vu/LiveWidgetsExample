@@ -195,6 +195,85 @@ export const proFeaturesPreset: UIPreset = {
         )
       ),
 
+      extraLarge: UI.VStack(
+        { padding: 20, spacing: 14, backgroundColor: '#020617' },
+        UI.HStack(
+          { justifyContent: 'spaceBetween', alignment: 'center' },
+          UI.Text('PRO SECURITY BOARD • EXTRA LARGE', {
+            fontSize: 16,
+            fontWeight: 'bold',
+            color: '#F8FAFC',
+          }),
+          UI.Badge({
+            text: 'iPadOS XL',
+            backgroundColor: '#1E3A8A',
+            textColor: '#93C5FD',
+            fontSize: 11,
+          })
+        ),
+        UI.Divider({ color: '#1E293B' }),
+        UI.HStack(
+          { spacing: 18, alignment: 'center', justifyContent: 'spaceBetween' },
+          UI.Gauge({
+            value: 0.88,
+            valueText: '88%',
+            label: 'KPI PRO',
+            tintColor: '#38BDF8',
+            size: 96,
+            strokeWidth: 10,
+            widgetAccentable: true,
+            privacySensitive: true,
+          }),
+          UI.VStack(
+            { spacing: 8 },
+            UI.Text('Doanh thu bảo mật (Face ID Guard)', { fontSize: 12, color: '#94A3B8' }),
+            UI.Text('94,820,000 đ', {
+              fontSize: 22,
+              fontWeight: 'bold',
+              color: '#34D399',
+              numericAnimation: true,
+              privacySensitive: true,
+              widgetAccentable: true,
+            }),
+            UI.Progress({
+              value: 0.88,
+              tintColor: '#38BDF8',
+              height: 8,
+              widgetAccentable: true,
+            })
+          )
+        )
+      ),
+
+      standBy: UI.VStack(
+        { padding: 14, spacing: 8, backgroundColor: '#000000', alignment: 'center' },
+        UI.Text('DOANH THU STANDBY', {
+          fontSize: 11,
+          fontWeight: 'bold',
+          color: '#94A3B8',
+          widgetAccentable: true,
+        }),
+        UI.Text('94.8M', {
+          fontSize: 32,
+          fontWeight: 'bold',
+          color: '#34D399',
+          numericAnimation: true,
+          widgetAccentable: true,
+        }),
+        UI.Progress({
+          value: 0.88,
+          tintColor: '#38BDF8',
+          trackColor: '#1E293B',
+          height: 8,
+          widgetAccentable: true,
+        }),
+        UI.Text('KPI 88% • iOS 17+ StandBy', {
+          fontSize: 10,
+          color: '#CBD5E1',
+          widgetAccentable: true,
+        })
+      ),
+
       accessoryRectangular: UI.VStack(
         { spacing: 2, privacySensitive: true },
         UI.Text('DOANH THU PRO', { fontSize: 9, fontWeight: 'bold' }),

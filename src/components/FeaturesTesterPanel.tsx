@@ -9,7 +9,16 @@ import {
   View,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ActiveActivityInfo, LiveActivity, SharedStorage, Widget } from 'react-native-live-widgets';
+import {
+  ActiveActivityInfo,
+  ControlWidget,
+  ControlWidgetConfig,
+  LiveActivity,
+  SharedStorage,
+  UI,
+  Widget,
+  WidgetPreview,
+} from 'react-native-live-widgets';
 import {
   getCounterValue,
   setCounterValue,
@@ -21,15 +30,33 @@ interface Props {
   appGroup: string;
   onLog: (msg: string) => void;
   onCounterChanged?: (val: number) => void;
+  onControlChanged?: (config: ControlWidgetConfig) => void;
 }
 
-export const FeaturesTesterPanel: React.FC<Props> = ({ appGroup, onLog, onCounterChanged }) => {
+export const FeaturesTesterPanel: React.FC<Props> = ({
+  appGroup,
+  onLog,
+  onCounterChanged,
+  onControlChanged,
+}) => {
   const [counter, setCounter] = useState<number>(getCounterValue());
   const [checkingAuth, setCheckingAuth] = useState<boolean>(false);
   const [authEnabled, setAuthEnabled] = useState<boolean | null>(null);
   const [frequentPushes, setFrequentPushes] = useState<boolean | null>(null);
   const [activeActivities, setActiveActivities] = useState<ActiveActivityInfo[]>([]);
   const [inspecting, setInspecting] = useState<boolean>(false);
+  const [controlCfg, setControlCfg] = useState<ControlWidgetConfig>(() =>
+    ControlWidget.toggle({
+      title: 'Tạm nghỉ',
+      subtitle: 'Chạm để vào ca',
+      checkedTitle: 'Đang trong ca',
+      checkedSubtitle: 'Live Control đang bật',
+      systemName: 'clock.badge.checkmark.fill',
+      tintColor: '#10B981',
+      checked: true,
+      actionId: 'toggle:attendance_control',
+    })
+  );
 
   // Đồng bộ số liệu 2 chiều từ AsyncStorage và SharedStorage khi mở App
   const syncLatestCounter = async () => {
@@ -190,6 +217,123 @@ export const FeaturesTesterPanel: React.FC<Props> = ({ appGroup, onLog, onCounte
     }
   };
 
+  // Thử nghiệm Control Widget (iOS 18 Control Center / Action Button & Android Quick Settings Tile)
+  const handleSetControlToggle = async () => {
+    const cfg = ControlWidget.toggle({
+      title: 'Tạm nghỉ',
+      subtitle: 'Chạm để vào ca',
+      checkedTitle: 'Đang trong ca',
+      checkedSubtitle: `Đồng bộ lúc ${new Date().toLocaleTimeString()}`,
+      systemName: 'clock.badge.checkmark.fill',
+      tintColor: '#10B981',
+      checked: true,
+      actionId: 'toggle:attendance_control',
+    });
+    setControlCfg(cfg);
+    onControlChanged?.(cfg);
+    const ok = await ControlWidget.set('toggle', cfg, appGroup);
+    const saved = await ControlWidget.getState('toggle', appGroup);
+    onLog(
+      ok
+        ? `🎛️ Đã cấu hình ControlWidget Toggle (${saved?.checkedTitle || saved?.title})`
+        : '⚠️ Không thể lưu ControlWidget Toggle'
+    );
+  };
+
+  const handleSetControlButton = async () => {
+    const cfg = ControlWidget.button({
+      title: 'Check-in nhanh',
+      subtitle: 'Control Button / QS Tile',
+      systemName: 'bolt.fill',
+      tintColor: '#2563EB',
+      actionId: 'action_control_quick_checkin',
+    });
+    setControlCfg(cfg);
+    onControlChanged?.(cfg);
+    const ok = await ControlWidget.set('main', cfg, appGroup);
+    onLog(ok ? '🎛️ Đã cấu hình ControlWidget Button ("Check-in nhanh")' : '⚠️ Không thể lưu Control Button');
+  };
+
+  // Thử nghiệm Vòng đời Live Activity hoàn chỉnh (Multi-Activity, RelevanceScore, Stale, AutoEnd)
+  const handleStartLifecycleSuite = async () => {
+    try {
+      const nowSec = Math.floor(Date.now() / 1000);
+      await LiveActivity.start({
+        activityId: 'shift_priority_high',
+        relevanceScore: 100,
+        staleTimestamp: nowSec + 15,
+        autoEndAfterSeconds: 45,
+        expiredDismissalPolicy: 'default',
+        lockScreen: UI.VStack(
+          { padding: 14, spacing: 6, backgroundColor: '#0F172A' },
+          UI.Text('Ca trực ưu tiên cao (Score 100)', { fontSize: 13, fontWeight: 'bold', color: '#38BDF8' }),
+          UI.Text('Tự chuyển Stale sau 15s • Tự kết thúc sau 45s', { fontSize: 11, color: '#CBD5E1' })
+        ),
+        staleLockScreen: UI.VStack(
+          { padding: 14, spacing: 6, backgroundColor: '#451A03' },
+          UI.Text('⚠️ DỮ LIỆU ĐÃ CŨ (STALE)', { fontSize: 13, fontWeight: 'bold', color: '#FBBF24' }),
+          UI.Text('Vui lòng chạm để làm mới ca trực', { fontSize: 11, color: '#FDE68A' })
+        ),
+        expiredLockScreen: UI.VStack(
+          { padding: 14, spacing: 6, backgroundColor: '#064E3B' },
+          UI.Text('✓ Ca trực đã tự kết thúc đúng giờ', { fontSize: 13, fontWeight: 'bold', color: '#6EE7B7' }),
+          UI.Text('Scheduled End đã tự dọn trạng thái', { fontSize: 11, color: '#A7F3D0' })
+        ),
+        dynamicIsland: {
+          compactLeading: UI.Image({ systemName: 'bolt.fill', tintColor: '#38BDF8', width: 14, height: 14 }),
+          compactTrailing: UI.Text('P100', { color: '#38BDF8', fontSize: 11, fontWeight: 'bold' }),
+          minimal: UI.Image({ systemName: 'star.fill', tintColor: '#38BDF8', width: 14, height: 14 }),
+        },
+        staleDynamicIsland: {
+          compactLeading: UI.Image({ systemName: 'exclamationmark.triangle.fill', tintColor: '#FBBF24', width: 14, height: 14 }),
+          compactTrailing: UI.Text('STALE', { color: '#FBBF24', fontSize: 10, fontWeight: 'bold' }),
+        },
+      });
+
+      await LiveActivity.start({
+        activityId: 'delivery_priority_low',
+        relevanceScore: 30,
+        autoEndAfterSeconds: 60,
+        lockScreen: UI.VStack(
+          { padding: 14, spacing: 6, backgroundColor: '#1E293B' },
+          UI.Text('Đơn nội bộ (Score 30)', { fontSize: 13, fontWeight: 'bold', color: '#E2E8F0' }),
+          UI.Text('Chạy song song với Live Activity ưu tiên cao', { fontSize: 11, color: '#94A3B8' })
+        ),
+      });
+
+      onLog('🔄 Đã bật 2 Live Activity song song (Score 100 + Stale 15s + AutoEnd 45s & Score 30)');
+      await inspectActiveActivities();
+    } catch (e: any) {
+      onLog(`Lỗi Lifecycle Suite: ${e.message}`);
+    }
+  };
+
+  const handleSendAlertUpdate = async () => {
+    const targetId = activeActivities[0]?.activityId || 'shift_priority_high';
+    const timeStr = new Date().toLocaleTimeString();
+    const ok = await LiveActivity.update({
+      activityId: targetId,
+      relevanceScore: 100,
+      alertConfig: {
+        title: 'Cảnh báo ca làm việc!',
+        body: `Dữ liệu vừa được cập nhật lúc ${timeStr}`,
+        sound: 'default',
+      },
+      lockScreen: UI.VStack(
+        { padding: 14, spacing: 6, backgroundColor: '#1E1B4B' },
+        UI.Text(`🔔 Alert Update (${timeStr})`, { fontSize: 13, fontWeight: 'bold', color: '#A5B4FC' }),
+        UI.Text(`Đã gửi cảnh báo tới ${targetId}`, { fontSize: 11, color: '#E0E7FF' })
+      ),
+    });
+    onLog(ok ? `🔔 Đã gửi Alert Update tới ${targetId}` : `⚠️ Không tìm thấy activity ${targetId}`);
+  };
+
+  const handleCleanupExpired = async () => {
+    const cleaned = await LiveActivity.cleanupExpired();
+    onLog(`🧹 cleanupExpired() đã dọn: ${cleaned.length ? cleaned.join(', ') : '0 phiên hết hạn'}`);
+    await inspectActiveActivities();
+  };
+
   return (
     <View style={styles.card}>
       <View style={styles.headerRow}>
@@ -306,13 +450,12 @@ export const FeaturesTesterPanel: React.FC<Props> = ({ appGroup, onLog, onCounte
             <View key={act.activityId} style={styles.activityItem}>
               <View style={styles.activityInfo}>
                 <Text style={styles.activityIdText} numberOfLines={1}>
-                  ID: {act.activityId}
+                  ID: {act.activityId} ({act.activityState || 'active'})
                 </Text>
-                {act.pushToken && (
-                  <Text style={styles.activityTokenText} numberOfLines={1}>
-                    Token: {act.pushToken.slice(0, 16)}...
-                  </Text>
-                )}
+                <Text style={styles.activityTokenText} numberOfLines={1}>
+                  Score: {act.relevanceScore ?? '-'} • Stale: {act.isStale ? 'YES' : 'NO'}
+                  {act.pushToken ? ` • Tok: ${act.pushToken.slice(0, 10)}...` : ''}
+                </Text>
               </View>
               <TouchableOpacity
                 style={styles.endBtn}
@@ -323,9 +466,43 @@ export const FeaturesTesterPanel: React.FC<Props> = ({ appGroup, onLog, onCounte
             </View>
           ))
         )}
+
+        <View style={[styles.btnRow, { marginTop: 8 }]}>
+          <TouchableOpacity style={[styles.actionBtn, styles.btnInc]} onPress={handleStartLifecycleSuite}>
+            <Text style={styles.btnTextInc}>Bật 2 LA + Stale/End</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.actionBtn, styles.btnDec]} onPress={handleSendAlertUpdate}>
+            <Text style={styles.btnTextDec}>Alert Update</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.actionBtn, styles.btnReset]} onPress={handleCleanupExpired}>
+            <Text style={styles.btnTextReset}>Cleanup</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
-      {/* ── 4. TIMELINE DEMO BUTTON ── */}
+      {/* ── 4. CONTROL WIDGET (iOS 18+ CONTROL CENTER & ANDROID QUICK SETTINGS) ── */}
+      <View style={styles.sectionBox}>
+        <Text style={styles.sectionLabel}>🎛️ 4. Control Widget (iOS 18 & Android QS Tile)</Text>
+        <Text style={styles.sectionDesc}>
+          Đồng bộ nút bật/tắt hoặc hành động nhanh với Control Center (iOS 18+) và Quick Settings (Android):
+        </Text>
+        <View style={styles.btnRow}>
+          <TouchableOpacity style={[styles.actionBtn, styles.btnInc]} onPress={handleSetControlToggle}>
+            <Text style={styles.btnTextInc}>Set Control Toggle</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.actionBtn, styles.btnDec]} onPress={handleSetControlButton}>
+            <Text style={styles.btnTextDec}>Set Control Button</Text>
+          </TouchableOpacity>
+        </View>
+        <WidgetPreview
+          size="control"
+          controlConfig={controlCfg}
+          showBadge={true}
+          onAction={(actId) => onLog(`🎛️ [Preview Control Tap] actionId = ${actId}`)}
+        />
+      </View>
+
+      {/* ── 5. TIMELINE DEMO BUTTON ── */}
       <TouchableOpacity style={styles.timelineBtn} onPress={handleSetTimelineDemo}>
         <Text style={styles.timelineBtnText}>⏱️ Thử nghiệm Timeline Entries (Tự đổi sau 2p)</Text>
       </TouchableOpacity>

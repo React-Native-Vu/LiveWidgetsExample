@@ -1,0 +1,16 @@
+/*
+ * Localizable.strings
+ * Generated automatically by react-native-live-widgets. DO NOT EDIT DIRECTLY.
+ * Language: ja
+ */
+
+"widgets.main.title" = "ライブウィジェット";
+"widgets.main.desc" = "アプリ内で選択したUIレイアウトを自動同期して表示します。";
+"widgets.counter.title" = "インタラクティブカウンター";
+"widgets.counter.desc" = "ボタンをタップしてTypeScriptロジックを直接実行します。";
+"widgets.pro.title" = "セキュリティ＆KPI Pro";
+"widgets.pro.desc" = "画面ロック時のプライバシー保護とStandByモードに対応。";
+"widgets.shift.title" = "勤怠＆シフト管理";
+"widgets.shift.desc" = "出勤時刻、退勤予定、勤務進捗バーをリアルタイムで追跡。";
+"widgets.workspace.title" = "マルチページワークスペース";
+"widgets.workspace.desc" = "ウィジェット上でシフト、タスク、OKRをシームレスに切り替え。";

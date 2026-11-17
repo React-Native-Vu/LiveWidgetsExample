@@ -1,0 +1,24 @@
+{
+  "widgets": {
+    "main": {
+      "title": "Tiện ích Live Widgets",
+      "desc": "Tự động đồng bộ và hiển thị theo mẫu giao diện bạn chọn trong ứng dụng."
+    },
+    "counter": {
+      "title": "Bộ đếm tương tác (TS)",
+      "desc": "Bấm nút [+] hoặc [-] để kích hoạt trực tiếp hàm logic TypeScript."
+    },
+    "pro": {
+      "title": "Bảo mật & KPI Pro",
+      "desc": "Tự che số khi khoá máy (Privacy Sensitive) và hỗ trợ chế độ StandBy."
+    },
+    "shift": {
+      "title": "Chấm công & Ca làm việc",
+      "desc": "Theo dõi giờ vào làm, thời gian tan ca và thanh tiến trình công việc."
+    },
+    "workspace": {
+      "title": "Không gian đa trang",
+      "desc": "Chuyển đổi qua lại giữa Ca làm, Công việc và OKRs ngay trên mặt Widget."
+    }
+  }
+}

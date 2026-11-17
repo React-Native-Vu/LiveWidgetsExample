@@ -1,0 +1,226 @@
+{
+  "sourceLanguage": "vi",
+  "strings": {
+    "widgets.main.title": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiện ích Live Widgets"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Live Widgets Dynamic"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ライブウィジェット"
+          }
+        }
+      }
+    },
+    "widgets.main.desc": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tự động đồng bộ và hiển thị theo mẫu giao diện bạn chọn trong ứng dụng."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatically synchronizes and renders selected preset layout in the app."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アプリ内で選択したUIレイアウトを自動同期して表示します。"
+          }
+        }
+      }
+    },
+    "widgets.counter.title": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bộ đếm tương tác (TS)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Interactive Counter (TS)"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "インタラクティブカウンター"
+          }
+        }
+      }
+    },
+    "widgets.counter.desc": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bấm nút [+] hoặc [-] để kích hoạt trực tiếp hàm logic TypeScript."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap [+] or [-] to trigger TypeScript handler directly on the widget."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ボタンをタップしてTypeScriptロジックを直接実行します。"
+          }
+        }
+      }
+    },
+    "widgets.pro.title": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bảo mật & KPI Pro"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Security & KPI Pro"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "セキュリティ＆KPI Pro"
+          }
+        }
+      }
+    },
+    "widgets.pro.desc": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tự che số khi khoá máy (Privacy Sensitive) và hỗ trợ chế độ StandBy."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hides sensitive data when locked and supports StandBy Mode."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "画面ロック時のプライバシー保護とStandByモードに対応。"
+          }
+        }
+      }
+    },
+    "widgets.shift.title": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chấm công & Ca làm việc"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Attendance & Shifts"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "勤怠＆シフト管理"
+          }
+        }
+      }
+    },
+    "widgets.shift.desc": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Theo dõi giờ vào làm, thời gian tan ca và thanh tiến trình công việc."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Track check-in time, shift completion and progress bar."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "出勤時刻、退勤予定、勤務進捗バーをリアルタイムで追跡。"
+          }
+        }
+      }
+    },
+    "widgets.workspace.title": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không gian đa trang"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Multi-Page Workspace"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "マルチページワークスペース"
+          }
+        }
+      }
+    },
+    "widgets.workspace.desc": {
+      "localizations": {
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chuyển đổi qua lại giữa Ca làm, Công việc và OKRs ngay trên mặt Widget."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Switch between Shifts, Tasks and OKRs directly on the widget."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ウィジェット上でシフト、タスク、OKRをシームレスに切り替え。"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widgets_main_title">Live Widgets Dynamic</string>
+    <string name="widgets_main_desc">Automatically synchronizes and renders selected preset layout in the app.</string>
+    <string name="widgets_counter_title">Interactive Counter (TS)</string>
+    <string name="widgets_counter_desc">Tap [+] or [-] to trigger TypeScript handler directly on the widget.</string>
+    <string name="widgets_pro_title">Security &amp; KPI Pro</string>
+    <string name="widgets_pro_desc">Hides sensitive data when locked and supports StandBy Mode.</string>
+    <string name="widgets_shift_title">Attendance &amp; Shifts</string>
+    <string name="widgets_shift_desc">Track check-in time, shift completion and progress bar.</string>
+    <string name="widgets_workspace_title">Multi-Page Workspace</string>
+    <string name="widgets_workspace_desc">Switch between Shifts, Tasks and OKRs directly on the widget.</string>
+</resources>

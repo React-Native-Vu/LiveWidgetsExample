@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widgets_main_title">ライブウィジェット</string>
+    <string name="widgets_main_desc">アプリ内で選択したUIレイアウトを自動同期して表示します。</string>
+    <string name="widgets_counter_title">インタラクティブカウンター</string>
+    <string name="widgets_counter_desc">ボタンをタップしてTypeScriptロジックを直接実行します。</string>
+    <string name="widgets_pro_title">セキュリティ＆KPI Pro</string>
+    <string name="widgets_pro_desc">画面ロック時のプライバシー保護とStandByモードに対応。</string>
+    <string name="widgets_shift_title">勤怠＆シフト管理</string>
+    <string name="widgets_shift_desc">出勤時刻、退勤予定、勤務進捗バーをリアルタイムで追跡。</string>
+    <string name="widgets_workspace_title">マルチページワークスペース</string>
+    <string name="widgets_workspace_desc">ウィジェット上でシフト、タスク、OKRをシームレスに切り替え。</string>
+</resources>

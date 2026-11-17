@@ -1,4 +1,5 @@
 import { UIPreset } from '../types/preset';
+import { dataBindingPreset } from './dataBindingPreset';
 import { jsxWorkspacePreset } from './jsxWorkspacePreset';
 import { interactiveCounterPreset } from './interactiveCounterPreset';
 import { proFeaturesPreset } from './proFeaturesPreset';
@@ -11,6 +12,7 @@ import { workoutTrackerPreset } from './workoutTrackerPreset';
 import { sprintTasksPreset } from './sprintTasksPreset';
 
 export const UI_PRESETS: UIPreset[] = [
+  dataBindingPreset,
   jsxWorkspacePreset,
   interactiveCounterPreset,
   proFeaturesPreset,
@@ -23,5 +25,6 @@ export const UI_PRESETS: UIPreset[] = [
   sprintTasksPreset,
 ];
 
+export { dataBindingPreset } from './dataBindingPreset';
 export { buildWidgetFromApi } from './apiShiftBuilder';
 export { jsxWorkspacePreset, buildJsxWidgets } from './jsxWorkspacePreset';

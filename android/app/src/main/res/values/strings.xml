@@ -1,4 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">LiveWidgetsExample</string>
+    <string name="widgets_main_title">Tiện ích Live Widgets</string>
+    <string name="widgets_main_desc">Tự động đồng bộ và hiển thị theo mẫu giao diện bạn chọn trong ứng dụng.</string>
+    <string name="widgets_counter_title">Bộ đếm tương tác (TS)</string>
+    <string name="widgets_counter_desc">Bấm nút [+] hoặc [-] để kích hoạt trực tiếp hàm logic TypeScript.</string>
+    <string name="widgets_pro_title">Bảo mật &amp; KPI Pro</string>
+    <string name="widgets_pro_desc">Tự che số khi khoá máy (Privacy Sensitive) và hỗ trợ chế độ StandBy.</string>
+    <string name="widgets_shift_title">Chấm công &amp; Ca làm việc</string>
+    <string name="widgets_shift_desc">Theo dõi giờ vào làm, thời gian tan ca và thanh tiến trình công việc.</string>
+    <string name="widgets_workspace_title">Không gian đa trang</string>
+    <string name="widgets_workspace_desc">Chuyển đổi qua lại giữa Ca làm, Công việc và OKRs ngay trên mặt Widget.</string>
 </resources>
-

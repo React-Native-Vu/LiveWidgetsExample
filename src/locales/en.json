@@ -1,0 +1,24 @@
+{
+  "widgets": {
+    "main": {
+      "title": "Live Widgets Dynamic",
+      "desc": "Automatically synchronizes and renders selected preset layout in the app."
+    },
+    "counter": {
+      "title": "Interactive Counter (TS)",
+      "desc": "Tap [+] or [-] to trigger TypeScript handler directly on the widget."
+    },
+    "pro": {
+      "title": "Security & KPI Pro",
+      "desc": "Hides sensitive data when locked and supports StandBy Mode."
+    },
+    "shift": {
+      "title": "Attendance & Shifts",
+      "desc": "Track check-in time, shift completion and progress bar."
+    },
+    "workspace": {
+      "title": "Multi-Page Workspace",
+      "desc": "Switch between Shifts, Tasks and OKRs directly on the widget."
+    }
+  }
+}
