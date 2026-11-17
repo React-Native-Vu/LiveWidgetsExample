@@ -10,8 +10,8 @@ import SwiftUI
 import react_native_live_widgets
 #endif
 
-/// Bundle mở rộng hỗ trợ cả Live Activity (Lock Screen & Dynamic Island)
-/// và Home Screen Widgets (Màn hình chính iOS 16.1 -> iOS 17/18/27+)
+/// Bundle extension supporting both Live Activities (Dynamic Island / Lock Screen)
+/// and Home Screen Widgets (iOS 16.1 -> iOS 17/18+)
 @main
 struct LiveWidgetsBundle: WidgetBundle {
   var body: some Widget {
@@ -20,7 +20,7 @@ struct LiveWidgetsBundle: WidgetBundle {
       DynamicLiveActivityWidget()
     }
 
-    // 2. Home Screen Widgets đăng ký từ TypeScript config
+    // 2. Home Screen Widgets registered from TypeScript configuration
     DynamicHomeScreenWidget()
     InteractiveCounterHomeScreenWidget()
     ProFeaturesHomeScreenWidget()

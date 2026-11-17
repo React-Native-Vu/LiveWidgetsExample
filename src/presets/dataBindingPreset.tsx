@@ -4,6 +4,7 @@ import {
   Button,
   Gauge,
   HStack,
+  Image,
   LayoutNode,
   Progress,
   Spacer,
@@ -258,13 +259,45 @@ export const dataBindingPreset: UIPreset = {
       </VStack>
     ),
     dynamicIsland: {
-      compactLeading: UI.Image({ systemName: 'bolt.horizontal.fill', tintColor: '#10B981', width: 16, height: 16 }),
-      compactTrailing: UI.Text('82%', { color: '#34D399', fontSize: 12, fontWeight: 'bold' }),
-      minimal: UI.Image({ systemName: 'chart.line.uptrend.xyaxis', tintColor: '#10B981', width: 14, height: 14 }),
+      compactLeading: (
+        <Image
+          systemNameIos="bolt.horizontal.fill"
+          systemNameAndroid=""
+          tintColor="#10B981"
+          width={16}
+          height={16}
+        />
+      ),
+      compactTrailing: (
+        <Text fontSize={12} fontWeight="bold" color="#34D399">
+          82%
+        </Text>
+      ),
+      minimal: (
+        <Image
+          systemNameIos="chart.line.uptrend.xyaxis"
+          systemNameAndroid="trending_up"
+          tintColor="#10B981"
+          width={14}
+          height={14}
+        />
+      ),
       expanded: {
-        leading: UI.Image({ systemName: 'person.crop.circle.badge.checkmark', tintColor: '#10B981', width: 24, height: 24 }),
-        trailing: UI.Badge({ text: 'Data 2.0', backgroundColor: '#064E3B', textColor: '#6EE7B7' }),
-        bottom: UI.Progress({ value: 0.82, tintColor: '#10B981', height: 5 }),
+        leading: (
+          <Image
+            systemName="person.crop.circle.badge.checkmark"
+            systemNameAndroid="verified"
+            tintColor="#10B981"
+            width={24}
+            height={24}
+          />
+        ),
+        trailing: (
+          <Badge text="Data 2.0" backgroundColor="#064E3B" textColor="#6EE7B7" />
+        ),
+        bottom: (
+          <Progress value={0.82} tintColor="#10B981" height={5} />
+        ),
       },
     },
   }),

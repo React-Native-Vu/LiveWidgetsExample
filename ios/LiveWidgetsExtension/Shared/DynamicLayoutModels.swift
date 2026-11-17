@@ -1,0 +1,363 @@
+import Foundation
+
+// MARK: - Declarative Layout Models (Shared between Live Activity & Home Screen Widgets)
+
+public struct LayoutNodeDTO: Codable {
+  public let id: String?
+  public let type: String
+  public let props: [String: AnyCodable]?
+  public let children: [LayoutNodeDTO]?
+
+  public init(id: String? = nil, type: String, props: [String: AnyCodable]? = nil, children: [LayoutNodeDTO]? = nil) {
+    self.id = id
+    self.type = type
+    self.props = props
+    self.children = children
+  }
+}
+
+public struct DynamicPayloadDTO: Codable {
+  public let activityId: String?
+  public let lockScreen: LayoutNodeDTO?
+  public let dynamicIsland: DynamicIslandDTO?
+  public let staleTimestamp: Double?
+  public let staleLockScreen: LayoutNodeDTO?
+  public let staleDynamicIsland: DynamicIslandDTO?
+  public let expiredLockScreen: LayoutNodeDTO?
+  public let relevanceScore: Double?
+  public let scheduledEndTimestamp: Double?
+  public let autoEndAfterSeconds: Double?
+  public let expiredDismissalPolicy: String?
+  public let alertTitle: String?
+  public let alertBody: String?
+  public let alertSound: String?
+
+  public init(
+    activityId: String? = nil,
+    lockScreen: LayoutNodeDTO? = nil,
+    dynamicIsland: DynamicIslandDTO? = nil,
+    staleTimestamp: Double? = nil,
+    staleLockScreen: LayoutNodeDTO? = nil,
+    staleDynamicIsland: DynamicIslandDTO? = nil,
+    expiredLockScreen: LayoutNodeDTO? = nil,
+    relevanceScore: Double? = nil,
+    scheduledEndTimestamp: Double? = nil,
+    autoEndAfterSeconds: Double? = nil,
+    expiredDismissalPolicy: String? = nil,
+    alertTitle: String? = nil,
+    alertBody: String? = nil,
+    alertSound: String? = nil
+  ) {
+    self.activityId = activityId
+    self.lockScreen = lockScreen
+    self.dynamicIsland = dynamicIsland
+    self.staleTimestamp = staleTimestamp
+    self.staleLockScreen = staleLockScreen
+    self.staleDynamicIsland = staleDynamicIsland
+    self.expiredLockScreen = expiredLockScreen
+    self.relevanceScore = relevanceScore
+    self.scheduledEndTimestamp = scheduledEndTimestamp
+    self.autoEndAfterSeconds = autoEndAfterSeconds
+    self.expiredDismissalPolicy = expiredDismissalPolicy
+    self.alertTitle = alertTitle
+    self.alertBody = alertBody
+    self.alertSound = alertSound
+  }
+}
+
+public struct DynamicIslandDTO: Codable {
+  public let compactLeading: LayoutNodeDTO?
+  public let compactTrailing: LayoutNodeDTO?
+  public let minimal: LayoutNodeDTO?
+  public let expanded: ExpandedIslandDTO?
+
+  public init(
+    compactLeading: LayoutNodeDTO? = nil,
+    compactTrailing: LayoutNodeDTO? = nil,
+    minimal: LayoutNodeDTO? = nil,
+    expanded: ExpandedIslandDTO? = nil
+  ) {
+    self.compactLeading = compactLeading
+    self.compactTrailing = compactTrailing
+    self.minimal = minimal
+    self.expanded = expanded
+  }
+}
+
+public struct ExpandedIslandDTO: Codable {
+  public let leading: LayoutNodeDTO?
+  public let trailing: LayoutNodeDTO?
+  public let bottom: LayoutNodeDTO?
+  public let center: LayoutNodeDTO?
+
+  public init(
+    leading: LayoutNodeDTO? = nil,
+    trailing: LayoutNodeDTO? = nil,
+    bottom: LayoutNodeDTO? = nil,
+    center: LayoutNodeDTO? = nil
+  ) {
+    self.leading = leading
+    self.trailing = trailing
+    self.bottom = bottom
+    self.center = center
+  }
+}
+
+// MARK: - Multi-Page Home Screen Widget & Remote Sync DTOs
+
+public struct WidgetSinglePageDTO: Codable {
+  public let small: LayoutNodeDTO?
+  public let medium: LayoutNodeDTO?
+  public let large: LayoutNodeDTO?
+  public let extraLarge: LayoutNodeDTO?
+  public let standBy: LayoutNodeDTO?
+  public let accessoryRectangular: LayoutNodeDTO?
+  public let accessoryCircular: LayoutNodeDTO?
+  public let accessoryInline: LayoutNodeDTO?
+}
+
+public struct WidgetMultiPagePayloadDTO: Codable {
+  public let root: LayoutNodeDTO?
+  public let version: String?
+  public let semanticSummary: String?
+  public let small: LayoutNodeDTO?
+  public let medium: LayoutNodeDTO?
+  public let large: LayoutNodeDTO?
+  public let extraLarge: LayoutNodeDTO?
+  public let standBy: LayoutNodeDTO?
+  public let accessoryRectangular: LayoutNodeDTO?
+  public let accessoryCircular: LayoutNodeDTO?
+  public let accessoryInline: LayoutNodeDTO?
+  public let pages: [String: WidgetSinglePageDTO]?
+  public let pageOrder: [String]?
+  public let initialPage: String?
+  public let rootDeepLink: String?
+  public let containerBackground: WidgetContainerBackgroundDTO?
+}
+
+public struct ControlWidgetConfigDTO: Codable {
+  public let type: String?
+  public let title: String
+  public let subtitle: String?
+  public let checkedTitle: String?
+  public let checkedSubtitle: String?
+  public let systemName: String?
+  public let tintColor: String?
+  public let checked: Bool?
+  public let actionId: String
+  public let deepLink: String?
+}
+
+public struct WidgetContainerBackgroundDTO: Codable {
+  public let backgroundColor: AnyCodable?
+  public let gradientColors: [String]?
+}
+
+// MARK: - Timeline Entries DTO (Widget Timeline Provider)
+
+public struct WidgetTimelineEntryDTO: Codable {
+  public let date: Double
+  public let layout: WidgetMultiPagePayloadDTO
+}
+
+public struct WidgetTimelineConfigDTO: Codable {
+  public let entries: [WidgetTimelineEntryDTO]
+  public let policy: String?
+  public let afterDate: Double?
+}
+
+public struct WidgetDataSchemaDTO: Codable {
+  public let requiredKeys: [String]?
+  public let types: [String: String]?
+  public let defaults: [String: AnyCodable]?
+}
+
+public struct WidgetAuthRefreshConfigDTO: Codable {
+  public let url: String
+  public let method: String?
+  public let headers: [String: String]?
+  public let body: AnyCodable?
+  public let tokenPath: String?
+  public let headerName: String?
+  public let headerPrefix: String?
+}
+
+public struct WidgetRemoteSourceConfigDTO: Codable {
+  public let url: String
+  public let method: String?
+  public let headers: [String: String]?
+  public let body: AnyCodable?
+  public let timeoutMs: Int?
+  public let enableETag: Bool?
+}
+
+public struct WidgetRemoteConfigDTO: Codable {
+  public let url: String?
+  public let method: String?
+  public let headers: [String: String]?
+  public let body: AnyCodable?
+  public let timeoutMs: Int?
+  public let cacheTtlSeconds: Int?
+  public let enableETag: Bool?
+  public let maxRetries: Int?
+  public let retryDelayMs: Int?
+  public let sources: [String: WidgetRemoteSourceConfigDTO]?
+  public let mapping: [String: String]?
+  public let schema: WidgetDataSchemaDTO?
+  public let authRefresh: WidgetAuthRefreshConfigDTO?
+  public let errorFallback: LayoutNodeDTO?
+  public let refreshIntervalMinutes: Int?
+  public let intervalMinutes: Int?
+
+  public var effectiveIntervalMinutes: Int {
+    return refreshIntervalMinutes ?? intervalMinutes ?? 15
+  }
+}
+
+public struct InteractiveWidgetState: Codable {
+  public var activePage: String?
+  public var pageOrder: [String]?
+  public var toggledItems: [String: Bool]
+  public var lastActionId: String?
+  public var actionUpdatedAt: Double?
+  public var lastSyncTime: String?
+  public var remoteVariables: [String: String]?
+  public var updatedAt: Double
+  public var etags: [String: String]?
+  public var lastModified: [String: String]?
+  public var syncStatus: String?
+  public var lastSyncError: String?
+  public var lastHttpStatus: Int?
+  public var accessToken: String?
+
+  public init(
+    activePage: String? = nil,
+    pageOrder: [String]? = nil,
+    toggledItems: [String: Bool] = [:],
+    lastActionId: String? = nil,
+    actionUpdatedAt: Double? = nil,
+    lastSyncTime: String? = nil,
+    remoteVariables: [String: String]? = nil,
+    updatedAt: Double = Date().timeIntervalSince1970,
+    etags: [String: String]? = nil,
+    lastModified: [String: String]? = nil,
+    syncStatus: String? = nil,
+    lastSyncError: String? = nil,
+    lastHttpStatus: Int? = nil,
+    accessToken: String? = nil
+  ) {
+    self.activePage = activePage
+    self.pageOrder = pageOrder
+    self.toggledItems = toggledItems
+    self.lastActionId = lastActionId
+    self.actionUpdatedAt = actionUpdatedAt
+    self.lastSyncTime = lastSyncTime
+    self.remoteVariables = remoteVariables
+    self.updatedAt = updatedAt
+    self.etags = etags
+    self.lastModified = lastModified
+    self.syncStatus = syncStatus
+    self.lastSyncError = lastSyncError
+    self.lastHttpStatus = lastHttpStatus
+    self.accessToken = accessToken
+  }
+}
+
+// MARK: - AnyCodable Helper
+
+public struct AnyCodingKey: CodingKey {
+  public var stringValue: String
+  public var intValue: Int?
+
+  public init?(stringValue: String) {
+    self.stringValue = stringValue
+    self.intValue = nil
+  }
+
+  public init?(intValue: Int) {
+    self.stringValue = "\(intValue)"
+    self.intValue = intValue
+  }
+}
+
+public struct AnyCodable: Codable {
+  public let value: Any
+
+  public init(_ value: Any) {
+    self.value = value
+  }
+
+  public init(from decoder: Decoder) throws {
+    let container = try decoder.singleValueContainer()
+    if let string = try? container.decode(String.self) {
+      value = string
+    } else if let double = try? container.decode(Double.self) {
+      value = double
+    } else if let bool = try? container.decode(Bool.self) {
+      value = bool
+    } else if let array = try? container.decode([AnyCodable].self) {
+      value = array.map { $0.value }
+    } else if let dict = try? container.decode([String: AnyCodable].self) {
+      value = dict.mapValues { $0.value }
+    } else {
+      value = ()
+    }
+  }
+
+  public func encode(to encoder: Encoder) throws {
+    var container = encoder.singleValueContainer()
+    if let str = value as? String {
+      try container.encode(str)
+    } else if let bool = value as? Bool {
+      try container.encode(bool)
+    } else if let int = value as? Int {
+      try container.encode(int)
+    } else if let double = value as? Double {
+      try container.encode(double)
+    } else if let dict = value as? [String: Any] {
+      var keyedContainer = encoder.container(keyedBy: AnyCodingKey.self)
+      for (k, v) in dict {
+        if let key = AnyCodingKey(stringValue: k) {
+          try keyedContainer.encode(AnyCodable(v), forKey: key)
+        }
+      }
+    } else if let arr = value as? [Any] {
+      var unkeyedContainer = encoder.unkeyedContainer()
+      for item in arr {
+        try unkeyedContainer.encode(AnyCodable(item))
+      }
+    } else {
+      try container.encodeNil()
+    }
+  }
+
+  public var stringValue: String? { value as? String }
+  public var doubleValue: Double? {
+    if let d = value as? Double { return d }
+    if let i = value as? Int { return Double(i) }
+    if let n = value as? NSNumber { return n.doubleValue }
+    if let s = value as? String { return Double(s.trimmingCharacters(in: .whitespaces)) }
+    return nil
+  }
+  public var boolValue: Bool? { value as? Bool }
+  public var arrayValue: [Any]? { value as? [Any] }
+  public var doubleArrayValue: [Double]? {
+    guard let arr = value as? [Any] else { return nil }
+    return arr.compactMap { item in
+      if let d = item as? Double { return d }
+      if let i = item as? Int { return Double(i) }
+      if let n = item as? NSNumber { return n.doubleValue }
+      if let s = item as? String { return Double(s) }
+      return nil
+    }
+  }
+  public var stringArrayValue: [String]? {
+    guard let arr = value as? [Any] else { return nil }
+    return arr.compactMap { item in
+      if let s = item as? String { return s }
+      if let n = item as? NSNumber { return n.stringValue }
+      return nil
+    }
+  }
+}
+
