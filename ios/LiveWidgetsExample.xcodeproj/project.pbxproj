@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC0100000000000000000001 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CC0200000000000000000001 /* Localizable.xcstrings */; };
 		09596577CBA14A8509F35C2D /* DynamicNodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DEF467ABA6E53AE6D56F0 /* DynamicNodeView.swift */; };
 		107AED8D2FEE6108DE093A26 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E0BAF9DCDCD72EA891D9EB90 /* PrivacyInfo.xcprivacy */; };
 		2D17AED0BF3B60195F07973C /* DynamicLiveActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB8A48674EA543EC5ECBFF1 /* DynamicLiveActivityWidget.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CC0200000000000000000001 /* Localizable.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = LiveWidgetsExtension/Localizable.xcstrings; sourceTree = "<group>"; };
 		290A47ED3C9E324646E49739 /* DynamicHomeScreenWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DynamicHomeScreenWidget.swift; path = "../../react-native-live-widgets/ios/Widgets/DynamicHomeScreenWidget.swift"; sourceTree = "<group>"; };
 		38401B199FE9C5C720AB84A9 /* Pods-LiveWidgetsExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveWidgetsExtension.release.xcconfig"; path = "Target Support Files/Pods-LiveWidgetsExtension/Pods-LiveWidgetsExtension.release.xcconfig"; sourceTree = "<group>"; };
 		3A0420145C4A281CA00853FE /* Pods-LiveWidgetsExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveWidgetsExtension.debug.xcconfig"; path = "Target Support Files/Pods-LiveWidgetsExtension/Pods-LiveWidgetsExtension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				5FF1B6C09AA2BFA618F86B71 /* Info.plist */,
+				CC0200000000000000000001 /* Localizable.xcstrings */,
 				77A08E25BACA10DEFADE5AD5 /* LiveWidgetsBundle.swift */,
 				BB0100000000000000000001 /* DynamicLayoutModels.swift */,
 				3B49CA0B717BE058CFDA03A6 /* DynamicActivityAttributes.swift */,
@@ -245,6 +248,8 @@
 			knownRegions = (
 				en,
 				Base,
+				vi,
+				ja,
 			);
 			mainGroup = FE24D13E4ED8648288E7067F;
 			productRefGroup = CCC27BB707FC899202297BA4 /* Products */;
@@ -270,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC0100000000000000000001 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

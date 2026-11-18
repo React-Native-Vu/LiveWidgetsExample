@@ -47,6 +47,9 @@ const SAMPLE_BINDING_DATASETS = [
 
 import { ShiftApiResponse, UIPreset } from './src/types/preset';
 import { buildWidgetFromApi, dataBindingPreset, UI_PRESETS } from './src/presets';
+import { shiftAttendancePreset } from './src/presets/shiftAttendancePreset';
+import { proFeaturesPreset } from './src/presets/proFeaturesPreset';
+import { interactiveWorkspacePreset } from './src/presets/interactiveWorkspacePreset';
 import {
   getCounterValue,
   setCounterValue,
@@ -357,13 +360,19 @@ export default function App() {
       await SharedStorage.remove('widget_timeline_main', APP_GROUP);
       const layouts = preset.buildWidgetLayouts();
 
-      // Đồng bộ vào 'main' và toàn bộ các widget slots ('pro', 'counter', 'shift', 'workspace')
-      // Đảm bảo dù người dùng ghim bất kỳ tiện ích nào ra Home Screen, tiện ích đó cũng cập nhật tức thì!
+      // Cập nhật slot 'main' theo preset người dùng đang chọn trên giao diện
       const ok = await Widget.setLayout('main', layouts, APP_GROUP);
-      await Widget.setLayout('pro', layouts, APP_GROUP);
-      await Widget.setLayout('counter', layouts, APP_GROUP);
-      await Widget.setLayout('shift', layouts, APP_GROUP);
-      await Widget.setLayout('workspace', layouts, APP_GROUP);
+
+      // Nếu preset này ứng với một slot chuyên biệt, cập nhật đồng bộ thêm vào slot đó
+      if (preset.id === 'interactive_counter') {
+        await Widget.setLayout('counter', layouts, APP_GROUP);
+      } else if (preset.id === 'shift_attendance') {
+        await Widget.setLayout('shift', layouts, APP_GROUP);
+      } else if (preset.id === 'pro_features') {
+        await Widget.setLayout('pro', layouts, APP_GROUP);
+      } else if (preset.id === 'interactive_workspace' || preset.id === 'jsx_workspace') {
+        await Widget.setLayout('workspace', layouts, APP_GROUP);
+      }
 
       if (preset.id === 'data_engine_binding') {
         await Widget.setData('main', SAMPLE_BINDING_DATASETS[mockDataIdx], APP_GROUP);
@@ -469,7 +478,19 @@ export default function App() {
         }
       } catch {}
 
-      await applyPresetToWidget(UI_PRESETS[0]);
+      // Khởi tạo các layout CHUYÊN BIỆT cho từng slot tiện ích:
+      // Đảm bảo trong Widget Gallery mỗi tiện ích hiển thị giao diện đặc trưng riêng, không bị trùng lặp!
+      try {
+        await Widget.setLayout('counter', interactiveCounterPreset.buildWidgetLayouts(), APP_GROUP);
+        await Widget.setLayout('shift', shiftAttendancePreset.buildWidgetLayouts(), APP_GROUP);
+        await Widget.setLayout('pro', proFeaturesPreset.buildWidgetLayouts(), APP_GROUP);
+        await Widget.setLayout('workspace', interactiveWorkspacePreset.buildWidgetLayouts(), APP_GROUP);
+        await Widget.setLayout('main', UI_PRESETS[0].buildWidgetLayouts(), APP_GROUP);
+        await Widget.setData('main', SAMPLE_BINDING_DATASETS[0], APP_GROUP);
+        await Widget.reloadAll();
+      } catch (e: any) {
+        addLog(`Lỗi khởi tạo widget slots: ${e?.message}`);
+      }
     };
 
     initWidgets();
