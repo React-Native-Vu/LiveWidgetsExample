@@ -60,6 +60,7 @@ import { HeaderSection } from './src/components/HeaderSection';
 import { MusicPlayerSection } from './src/components/MusicPlayerSection';
 import { ApiSyncPanel, formatIntervalLabel } from './src/components/ApiSyncPanel';
 import { FeaturesTesterPanel } from './src/components/FeaturesTesterPanel';
+import { EnterpriseFeaturesPanel } from './src/components/EnterpriseFeaturesPanel';
 import { PushTokenPanel } from './src/components/PushTokenPanel';
 import { PresetCard } from './src/components/PresetCard';
 import { ActivityLogPanel } from './src/components/ActivityLogPanel';
@@ -649,6 +650,13 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scroll}>
         <HeaderSection />
+
+        {/* ── BẢNG KIỂM THỬ TÍNH NĂNG MỚI NHÓM A → E (v1.3 ENTERPRISE) ── */}
+        <EnterpriseFeaturesPanel
+          appGroup={APP_GROUP}
+          onLog={addLog}
+          onControlChanged={(cfg) => setActiveControlCfg(cfg)}
+        />
 
         {/* Tạm ẩn tính năng Audio Test, để lại để test sau */}
         {/* <MusicPlayerSection
